@@ -58,4 +58,18 @@ output "default_security_group_id" {
   value       = module.vpc.default_security_group_id
 }
 
+output "nat_public_ips" {
+  description = "IPs publicas de los NAT Gateways"
+  value       = module.vpc.nat_public_ips
+}
+
+output "vpc_main_route_table_id" {
+  description = "ID de la tabla de rutas principal de la VPC"
+  value       = module.vpc.vpc_main_route_table_id
+}
+
+output "azs" {
+  description = "Zonas de disponibilidad configuradas"
+  value       = module.vpc.azs
+}
 
