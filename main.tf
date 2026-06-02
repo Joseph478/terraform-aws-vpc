@@ -1,4 +1,9 @@
 
+locals {
+    common_tags = merge(var.tags, {
+        ENV = "PROD"
+    })
+}
 
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
@@ -20,5 +25,5 @@ module "vpc" {
   one_nat_gateway_per_az = var.one_nat_gateway_per_az
   map_public_ip_on_launch = var.map_public_ip_on_launch
 
-  tags = var.tags
+  tags = local.common_tags
 }
